@@ -26,13 +26,21 @@ export class ChatbotComponent implements OnInit, OnDestroy {
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    this.messages.push({ text:  this.styleConfig.greeting || 'Hi! How can I help you today?', isUser: false, time });
+  // Get userId from query params (or default to 'user1')
+  const userId = this.route.snapshot.queryParamMap.get('userId') as 'user1' | 'user2' | 'user3' || 'user1';
 
-    const userId = this.route.snapshot.queryParamMap.get('userId') as 'user1' | 'user2' | 'user3' || 'user1';
-    // const user='user'
-    this.styleConfig = USER_STYLES[userId];
-  }
+  // Set the styleConfig based on userId
+  this.styleConfig = USER_STYLES[userId];
+
+  // Push greeting message after styleConfig is set
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  this.messages.push({
+    text: this.styleConfig.greeting || 'Hi! How can I help you today?',
+    isUser: false,
+    time
+  });
+}
+
 
   sendMessage(): void {
     const text = this.userMessage.trim();
