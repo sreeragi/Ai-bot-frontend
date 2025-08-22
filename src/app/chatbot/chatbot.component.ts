@@ -27,7 +27,7 @@ export class ChatbotComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    this.messages.push({ text: 'Hi! How can I help you today?', isUser: false, time });
+    this.messages.push({ text:  this.styleConfig.greeting || 'Hi! How can I help you today?', isUser: false, time });
 
     const userId = this.route.snapshot.queryParamMap.get('userId') as 'user1' | 'user2' | 'user3' || 'user1';
     // const user='user'
