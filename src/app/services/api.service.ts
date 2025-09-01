@@ -22,7 +22,7 @@ export interface UserStyle {
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly SERVER_URL = 'https://ai-bot-backend-aug-29.onrender.com/api'; // your deployed backend
+  private readonly SERVER_URL = 'http://localhost:3000/api'; // your deployed backend
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +37,8 @@ export class ApiService {
   }
 
   getLogo(userId: number): Observable<{ logo: string }> {
-  return this.http.get<{ logo: string }>(`${this.SERVER_URL}/logo/${userId}`);
+  return this.http.get<{ logo: string }>(`${this.SERVER_URL}/styles/logo/${userId}`);
 }
 
 }
+

@@ -41,13 +41,6 @@ ngOnInit(): void {
     error:(err)=>console.error("Style fetch error:",err)
   });
 
-  // ✅ Fetch Logo separately
-  this.apiService.getLogo(this.userId).subscribe({
-    next: (res) => {
-      this.styleConfig = { ...this.styleConfig, logo: res.logo };
-    },
-    error: (err) => console.error('Logo fetch error:', err)
-  });
 }
 
   sendMessage(): void {

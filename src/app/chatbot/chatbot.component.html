@@ -13,11 +13,9 @@
        }">
 
     <!-- ✅ Show Logo if available -->
-    <ng-container *ngIf="styleConfig?.logo; else noLogo">
-      <img [src]="styleConfig?.logo"
-           alt="Logo"
-           class="w-10 h-10 rounded-full mr-3 object-cover" />
-    </ng-container>
+    <img *ngIf="styleConfig?.logo" [src]="styleConfig?.logo" alt="Logo"
+     class="w-10 h-10 rounded-full mr-3 object-cover" />
+
 
     <!-- ✅ Fallback if no logo -->
     <ng-template #noLogo>
