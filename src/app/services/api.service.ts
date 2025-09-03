@@ -22,7 +22,7 @@ export interface UserStyle {
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly SERVER_URL = 'http://localhost:3000/api'; // your deployed backend
+  private readonly SERVER_URL = 'https://ai-bot-backend-1-kil5.onrender.com/api'; // your deployed backend
 
   constructor(private http: HttpClient) {}
 
